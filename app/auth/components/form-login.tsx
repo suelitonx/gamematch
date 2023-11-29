@@ -9,14 +9,21 @@ const LoginForm = () => {
 
     const router = useRouter()
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
-    
-    const handleLogin = async (e: React.FormEvent) => {
+    const handleCreateAccount = () => {
+        router.push('/auth/signup');
+      };
 
-        e.preventDefault()
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+
+        e.preventDefault();
+        
+        const formData = new FormData(e.currentTarget)
+
+        const email = formData.get('email');
+        const password = formData.get('password');
+
 
         try {
             const response = await signIn('credentials', {
@@ -35,12 +42,15 @@ const LoginForm = () => {
                 
             }
             else {
+                console.log(response?.error)
                 setError("Email ou senha inválidas.")
             }
 
         } catch (error) {
             console.log('LOGIN ERROR: ', error)
         }
+
+        
 
 
     }
@@ -56,7 +66,6 @@ const LoginForm = () => {
                 <input 
                     type="email" 
                     name="email" 
-                    onChange={(e) => setEmail(e.target.value)} 
                     className="border rounded w-fit w-full p-3"
                 />
             </div>
@@ -65,7 +74,6 @@ const LoginForm = () => {
                 <input 
                     type="password" 
                     name="password" 
-                    onChange={(e) => setPassword(e.target.value)} 
                     className="border rounded w-fit w-full p-3"
                 />
             </div>
@@ -73,6 +81,13 @@ const LoginForm = () => {
             <button
             type="submit"
             className="mt-10 bg-blue-900 text-slate-50 p-3 rounded">Entrar</button>
+            <button
+          type="button" 
+          onClick={handleCreateAccount}
+          className="mt-2 border border-blue-900 text-blue-900 text-slate-50 p-3 rounded"
+        >
+          Cadastra-se
+        </button>
         </div>
 
 

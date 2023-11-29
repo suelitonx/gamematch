@@ -12,7 +12,9 @@ const authOptions: NextAuthOptions = {
             },
             async authorize(credentials)
             {
-                const response = await fetch("https://www.sueliton.live/api/collections/users/auth-with-password", {
+                console.log("CREDENCIAIS ENVIADAS AO SERVIDOR: ", credentials?.email, credentials?.password)
+
+                const response = await fetch("https://www.sueliton.live/api/collections/usuariosgm/auth-with-password", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -32,7 +34,8 @@ const authOptions: NextAuthOptions = {
                     return record
                 }
                 return null
-            }
+            },
+            
         })
     ],
     callbacks: {
@@ -46,7 +49,7 @@ const authOptions: NextAuthOptions = {
                 console.log("TOKEN: ", token)
                 return {
                     ...token,
-                    role: customUser.tipo
+                    nivel: customUser.nivel
                     //pbtoken: customUser.pbtoken
                 }
             }
@@ -60,14 +63,16 @@ const authOptions: NextAuthOptions = {
                 user: {
                     name: token.name,
                     email: token.email,
-                    role: token.role
+                    nivel: token.nivel
                     //pbtoken: token.pbtoken
                 }
             }
-        }
+        },
+        
     },
     pages: {
-        signIn: '/auth/login'
+        signIn: '/auth/login',
+        newUser: '/auth/signup'
     }
 }
 const handler = NextAuth(authOptions)

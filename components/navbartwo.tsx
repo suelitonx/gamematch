@@ -13,12 +13,10 @@ import { signOut } from "next-auth/react"
 import Logo from '../public/gm.png'
 import UserImage from '../public/user.png'
 import { useRouter, usePathname } from 'next/navigation'
-
-
   
-  function classNames(...classes: any[]) {
-    return classes.filter(Boolean).join(' ')
-  }
+function classNames(...classes: any[]) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function NavBarTwo( ) {
 

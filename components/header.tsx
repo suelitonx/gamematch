@@ -14,7 +14,6 @@ const Header = async  () => {
     if(session)
     {
         console.log("HEADER SESSION DETECT:", session?.user)
-        
     }
 
     if(session)

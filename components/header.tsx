@@ -9,6 +9,7 @@ const Header = async  () => {
     if(session)
     {
         console.log("HEADER SESSION DETECT:", session?.user)
+        
     }
 
     return  (
@@ -19,8 +20,9 @@ const Header = async  () => {
             <ul className="flex items-center gap-10">
                 <li><Link href="/">Inicio</Link></li>
                 <li><Link href="/public">Publica</Link></li>
-                <li><Link className="mx-5" href="/private">Privada</Link></li>
-                {session && <li className="mx-5"><SignOutButton /></li>}
+                
+                {session ? <li><Link href="/private">Privada</Link></li> : <li><Link href="/private" className="mr-5">Privada</Link></li>}
+                {session && <li className="mr-5"><SignOutButton /></li>}
             </ul>
         </nav>
     </header>

@@ -27,8 +27,10 @@ const LoginForm = () => {
 
             if(!response?.error)
             {
-                router.refresh();
+                
                 router.push('/')
+                router.refresh()
+                
             }
             else {
                 setError("Email ou senha inválidas.")

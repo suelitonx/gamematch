@@ -1,11 +1,18 @@
 'use client'
 
 import { signOut } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 export const SignOutButton = () => {
 
+    const router = useRouter()
+
+    async function logout(){
+        await signOut()
+    }
+
     return (   
-        <button onClick={() => signOut()}>Sair</button>
+        <button onClick={logout}>Sair</button>
     )
 
 }

@@ -11,7 +11,6 @@ const middleware = (request: NextRequestWithAuth) => {
         return NextResponse.rewrite(new URL('/denied', request.url))
     }
 
-
 }
 
 const callbackOptions: NextAuthMiddlewareOptions = {}

@@ -10,7 +10,7 @@ const authOptions: NextAuthOptions = {
                 email: {label: 'Email', type: 'email'},
                 password: {label: 'Senha', type: 'password'}
             },
-            async authorize(credentials, token)
+            async authorize(credentials)
             {
                 const response = await fetch("https://www.sueliton.live/api/collections/users/auth-with-password", {
                     method: "POST",
@@ -29,7 +29,6 @@ const authOptions: NextAuthOptions = {
 
                     const {record, token} = data;
                     record.pbtoken = token;
-                    //token = pbtoken
                     return record
                 }
                 return null
@@ -39,27 +38,29 @@ const authOptions: NextAuthOptions = {
     callbacks: {
         jwt: ({token, user}) => {
             const customUser = user as unknown as any
-            
-            
+
+
 
             if(user)
             {
-
+                console.log("TOKEN: ", token)
                 return {
                     ...token,
-                    role: customUser.tipo,
+                    role: customUser.tipo
                     //pbtoken: customUser.pbtoken
                 }
             }
             return token
         },
         session: async ({session, token}) => {
+            console.log("SESSÃO: ",session)
+            
             return {
                 ...session,
                 user: {
                     name: token.name,
                     email: token.email,
-                    role: token.role,
+                    role: token.role
                     //pbtoken: token.pbtoken
                 }
             }

@@ -27,8 +27,8 @@ const LoginForm = () => {
 
             if(!response?.error)
             {
-                router.refresh()
-                router.push('/private')
+                router.refresh();
+                router.push('/')
             }
             else {
                 setError("Email ou senha inválidas.")

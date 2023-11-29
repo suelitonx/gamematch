@@ -6,6 +6,11 @@ const Header = async  () => {
 
     const session = await getServerSession()
 
+    if(session)
+    {
+        console.log("HEADER SESSION DETECT:", session?.user)
+    }
+
     return  (
     
     <header className="fixed w-full h-20 flex items-center bg-blue-400 text-slate-450">

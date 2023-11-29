@@ -70,7 +70,7 @@ const LoginForm = () => {
             {error && <span className="text-red-400 text-sm block mt-2">{error}</span>}
             <button
             type="submit"
-            className="mt-10 bg-rose-950 text-slate-50 p-3 rounded">Entrar</button>
+            className="mt-10 bg-blue-900 text-slate-50 p-3 rounded">Entrar</button>
         </div>
 
 

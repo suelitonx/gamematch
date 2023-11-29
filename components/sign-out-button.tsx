@@ -12,7 +12,7 @@ export const SignOutButton = () => {
     }
 
     return (   
-        <button onClick={logout}>Sair</button>
+        <button onClick={logout} className="text-white hover:text-[#50d71e]">Sair</button>
     )
 
 }

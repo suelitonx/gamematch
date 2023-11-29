@@ -2,6 +2,9 @@ import Link from "next/link"
 import { SignOutButton } from "./sign-out-button"
 import { getServerSession } from "next-auth"
 
+import Logo from '../public/gm.png'
+import Image from "next/image"
+
 const Header = async  () => {
 
     const session = await getServerSession()
@@ -14,15 +17,15 @@ const Header = async  () => {
 
     return  (
     
-    <header className="fixed w-full h-20 flex items-center bg-blue-400 text-slate-450">
+    <header className="fixed w-full h-20 flex items-center bg-blue-900 text-slate-450">
         <nav className="w-full flex items-center justify-between m-auto max-w-screen-x1 ">
-            <Link href="/" className="ml-2">Logo</Link>
+            <Link href="/" className="ml-2"> <Image src={Logo} alt="Logo" height={45} ></Image>  </Link>
             <ul className="flex items-center gap-10">
-                <li><Link href="/">Inicio</Link></li>
-                <li><Link href="/public">Publica</Link></li>
+                <li><Link className="text-white hover:text-[#50d71e]" href="/">Inicio</Link></li>
+                <li><Link className="text-white hover:text-[#50d71e]" href="/public">Publica</Link></li>
                 
-                {session ? <li><Link href="/private">Privada</Link></li> : <li><Link href="/private" className="mr-5">Privada</Link></li>}
-                {session && <li className="mr-5"><SignOutButton /></li>}
+                {session ? <li><Link href="/private" className="text-white hover:text-[#50d71e]">Privada</Link></li> : <li><Link href="/private" className="mr-5 text-white hover:text-[#50d71e]">Login</Link></li>}
+                {session && <li className="mr-5" ><SignOutButton /></li>}
             </ul>
         </nav>
     </header>

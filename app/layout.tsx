@@ -1,33 +1,38 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { Header } from '@/components/header'
-import { AuthProvider } from '@/providers/auth-provider'
-import NavBar from '@/components/navbarone'
+"use client";
 
-const inter = Inter({ subsets: ['latin'] })
+import Footer from "@/components/Footer";
 
-export const metadata: Metadata = {
-  title: 'GameMatch',
-  description: 'Sua lista de jogos focada somente em você e no que você gosta!',
-}
-//<Header />
+import ScrollToTop from "@/components/ScrollToTop";
+import { Inter } from "next/font/google";
+import "node_modules/react-modal-video/css/modal-video.css";
+import "../styles/index.css";
+
+const inter = Inter({ subsets: ["latin"] });
+
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <AuthProvider>
+    <html suppressHydrationWarning lang="en">
+      {/*
+        <head /> will contain the components returned by the nearest parent
+        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
+      */}
+      <head />
 
-        <html lang="en">
-          <body className={inter.className}>
-            <Header></Header>
-            {children}
-          </body>
-        </html>
-
-    </AuthProvider>
-
-  )
+      <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+          <ScrollToTop />
+        </Providers>
+      </body>
+    </html>
+  );
 }
+
+import { Providers } from "./providers";import Header from "@/components/Header";
+

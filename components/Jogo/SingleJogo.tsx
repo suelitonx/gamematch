@@ -3,7 +3,6 @@ import { generos, generosFromAPI, plataformas } from "@/data/info-api";
 import { Game } from "@/types/game";
 import Image from "next/image";
 import Link from "next/link";
-import { format } from 'date-fns';
 
 const SingleJogo = ({ jogo }: { jogo: Game }) => {
   const { id, title, thumbnail, short_description, genre, platform, publisher, release_date } = jogo;

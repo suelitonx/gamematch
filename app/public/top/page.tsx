@@ -38,7 +38,7 @@ export default async function TopPage() {
 
     <>
       <ScrollUp />
-      <Jogo random={false} arrJogos={jogosArray}  /> 
+      <Jogo logado={false} random={false} arrJogos={jogosArray}  /> 
       
       {/*
       <ScrollUp />

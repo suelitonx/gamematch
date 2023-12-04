@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <ScrollUp />
-      <Jogo random={true} arrJogos={[]}></Jogo>
+      <Jogo logado={false} random={true} arrJogos={[]}></Jogo>
       
       {/*
       <ScrollUp />

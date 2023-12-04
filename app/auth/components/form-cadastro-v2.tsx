@@ -6,8 +6,6 @@ import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-
-
 const NewSignUpForm = ({ logado }: { logado: boolean }) => {
 
     const router = useRouter()
@@ -114,7 +112,7 @@ const NewSignUpForm = ({ logado }: { logado: boolean }) => {
                 <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
                   Cadastre-se
                 </h3>
-                <p className="mb-11 text-center text-base text-red-800 font-medium text-body-color">
+                <p className="mb-11 text-center text-base font-medium text-body-color">
                   É bem fácil e rápido!
                 </p>
                 {/*

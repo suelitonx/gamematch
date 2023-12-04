@@ -12,12 +12,10 @@ export const metadata: Metadata = {
 
 export default function Home() {
   
-  
-  
   return (
     <>
       <ScrollUp />
-      <Jogo random={false} arrJogos={[]}></Jogo>
+      <Jogo random={true} arrJogos={[]}></Jogo>
       
       {/*
       <ScrollUp />

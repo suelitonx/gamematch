@@ -11,10 +11,6 @@ function validateName(nome:string) {
 
 }
 
-/*
-
-*/
-
 export async function POST(request: Request) {
 
     try {
@@ -50,7 +46,9 @@ export async function POST(request: Request) {
                 password: password,
                 passwordConfirm: cpassword,
                 name: name,
-                nivel: 1
+                nivel: 1,
+                categorias: [],
+                plataforma: ''
             }),
         });
 

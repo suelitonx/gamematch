@@ -1,4 +1,25 @@
 //mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts
+
+const generosFromAPI: { original: string; traducao: string }[] = [
+    { original: 'Shooter', traducao: "Atirador"},
+    { original: 'MMOARPG', traducao: "MMOARPG"},
+    { original: 'ARPG', traducao: "ARPG"},
+    { original: 'Strategy', traducao: "Estratégia"},
+    { original: 'MMORPG', traducao: "MMORPG"},
+    { original: 'Fighting', traducao: "Luta"},
+    { original: 'Action RPG', traducao: "RPG de Ação"},
+    { original: 'Battle Royale', traducao: "Battle Royale"},
+    { original: 'MOBA', traducao: "MOBA"},
+    { original: 'Card', traducao: "Cartas"},
+    { original: 'Sports', traducao: "Esportes"},
+    { original: 'Racing', traducao: "Corrida"},
+    { original: 'Card Game', traducao: "Cartas"},
+    { original: 'MMO', traducao: "MMO"},
+    { original: 'Social', traducao: "Social"},
+    { original: ' MMORPG', traducao: "MMORPG"},
+    { original: 'Fantasy', traducao: "Fantasia"}
+];
+
 const generos: { original: string; traducao: string }[] = [
     { original: "mmorpg", traducao: "MMORPG" },
     { original: "shooter", traducao: "Atirador" },
@@ -10,28 +31,28 @@ const generos: { original: string; traducao: string }[] = [
     { original: "sandbox", traducao: "Sandbox" },
     { original: "open-world", traducao: "Mundo aberto" },
     { original: "survival", traducao: "Sobrevivência" },
-    { original: "pvp", traducao: "Jogador contra jogador" },
-    { original: "pve", traducao: "Jogador contra ambiente" },
+    { original: "pvp", traducao: "PVP" },
+    { original: "pve", traducao: "PVE" },
     { original: "pixel", traducao: "Pixel" },
     { original: "voxel", traducao: "Voxel" },
     { original: "zombie", traducao: "Zumbi" },
     { original: "turn-based", traducao: "Baseado em turnos" },
-    { original: "first-person", traducao: "Primeira pessoa" },
-    { original: "third-person", traducao: "Terceira pessoa" },
+    { original: "first-person", traducao: "1ª Pessoa" },
+    { original: "third-person", traducao: "3ª Pessoa" },
     { original: "top-down", traducao: "Visão de cima" },
     { original: "tank", traducao: "Tanque" },
     { original: "space", traducao: "Espaço" },
     { original: "sailing", traducao: "Navegação" },
-    { original: "side-scroller", traducao: "Jogo de rolagem lateral" },
+    { original: "side-scroller", traducao: "Rolagem lateral" },
     { original: "superhero", traducao: "Super-herói" },
     { original: "permadeath", traducao: "Morte permanente" },
     { original: "card", traducao: "Cartas" },
     { original: "battle-royale", traducao: "Battle Royale" },
-    { original: "mmo", traducao: "RPG online massivo" },
-    { original: "mmofps", traducao: "FPS online massivo" },
-    { original: "mmotps", traducao: "TPS online massivo" },
-    { original: "3d", traducao: "Tridimensional" },
-    { original: "2d", traducao: "Bidimensional" },
+    { original: "mmo", traducao: "RPG Online" },
+    { original: "mmofps", traducao: "FPS Online" },
+    { original: "mmotps", traducao: "TPS Online" },
+    { original: "3d", traducao: "3D" },
+    { original: "2d", traducao: "2D" },
     { original: "anime", traducao: "Anime" },
     { original: "fantasy", traducao: "Fantasia" },
     { original: "sci-fi", traducao: "Ficção científica" },
@@ -44,14 +65,14 @@ const generos: { original: string; traducao: string }[] = [
     { original: "low-spec", traducao: "PC da Xuxa" },
     { original: "tower-defense", traducao: "Defesa de torre" },
     { original: "horror", traducao: "Terror" },
-    { original: "mmorts", traducao: "Estratégia em tempo real massiva online" },
+    { original: "mmorts", traducao: "Estratégia Online" },
 ];
 
 //release-date, popularity, alphabetical or relevance
 const ordenacao: { original: string; traducao: string }[] = [
     {original: "release-date", traducao: "Data de Lançamento"},
     {original: "popularity", traducao: "Popularidade"},
-    {original: "alphabetical", traducao: "Ordem Alfabética"},
+    {original: "alphabetical", traducao: "Ordem Alfabética"},   
     {original: "relevance", traducao: "Relevância"},
 ];
 
@@ -62,4 +83,4 @@ const plataformas: {original: string; traducao: string}[] = [
     {original: "all", traducao: "Todas"},
 ];
 
-export { generos, ordenacao, plataformas }
+export { generos, ordenacao, plataformas, generosFromAPI }

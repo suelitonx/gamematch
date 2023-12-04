@@ -1,12 +1,15 @@
 import Link from "next/link";
 
 import { Metadata } from "next";
+import SelectSusu from "./selectsusu";
+import SelectButton from "@/components/Blog/SelectButton";
 
 export const metadata: Metadata = {
   title: "Sign In Page | Free Next.js Template for Startup and SaaS",
   description: "This is Sign In Page for Startup Nextjs Template",
   // other metadata
 };
+
 
 const SigninPage = () => {
   return (
@@ -99,6 +102,7 @@ const SigninPage = () => {
                       className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                     />
                   </div>
+                  
                   <div className="mb-8">
                     <label
                       htmlFor="password"
@@ -112,6 +116,11 @@ const SigninPage = () => {
                       placeholder="Digite sua senha"
                       className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                     />
+                  </div>
+                  <div className="mb-8">
+
+                  <SelectButton></SelectButton>
+
                   </div>
                   <div className="mb-8 flex flex-col justify-between sm:flex-row sm:items-center">
                     <div className="mb-4 sm:mb-0">

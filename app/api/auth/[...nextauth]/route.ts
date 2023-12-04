@@ -39,32 +39,44 @@ const authOptions: NextAuthOptions = {
         })
     ],
     callbacks: {
-        jwt: ({token, user}) => {
+        jwt: ({token, user, trigger, session }) => {
+            
+
+            if(trigger == "update" && session?.plataforma && session?.categorias)
+            {
+                token.plataforma = session.plataforma;
+                token.categorias = session.categorias;
+            }
+
             const customUser = user as unknown as any
-
-
 
             if(user)
             {
                 console.log("TOKEN: ", token)
                 return {
                     ...token,
-                    nivel: customUser.nivel
-                    //pbtoken: customUser.pbtoken
+                    nivel: customUser.nivel,
+                    categorias: customUser.categorias,
+                    plataforma: customUser.plataforma,
+                    pbtoken: customUser.pbtoken, 
+                    id: customUser.id
                 }
             }
             return token
         },
         session: async ({session, token}) => {
-            console.log("SESSÃO: ",session)
+            //console.log("SESSÃO: ",session)
             
             return {
                 ...session,
                 user: {
                     name: token.name,
                     email: token.email,
-                    nivel: token.nivel
-                    //pbtoken: token.pbtoken
+                    nivel: token.nivel,
+                    categorias: token.categorias,
+                    plataforma: token.plataforma,
+                    pbtoken: token.pbtoken,
+                    id: token.id
                 }
             }
         },
@@ -77,4 +89,4 @@ const authOptions: NextAuthOptions = {
 }
 const handler = NextAuth(authOptions)
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST, authOptions  }

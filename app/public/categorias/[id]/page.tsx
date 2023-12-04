@@ -28,7 +28,7 @@ export default async function CategoriasIDs({ params } : { params: {id: string};
 
     <>
       <ScrollUp />
-      <Jogo random={false} arrJogos={jogosArray}  /> 
+      <Jogo logado={false} random={false} arrJogos={jogosArray}  /> 
       
       {/*
       <ScrollUp />

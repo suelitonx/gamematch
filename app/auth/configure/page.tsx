@@ -1,6 +1,6 @@
 
 import { getServerSession } from "next-auth";
-import { FormConfigure } from "../../auth/components/form-configure";
+import { FormConfigure } from "../components/form-configure";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function SignUpPage() {

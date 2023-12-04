@@ -9,7 +9,7 @@ const testimonialData: Testimonial[] = [
     designation: "Founder @TailGrids",
     content:
       "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-01.png",
+    image: "/images/testimonials/user.png",
     star: 5,
   },
   {

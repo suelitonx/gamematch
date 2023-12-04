@@ -4,11 +4,10 @@ import SingleJogo from "./SingleJogo";
 import { Game } from "@/types/game";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import BasicSelect from "./SelectPesado";
 
-const TOTAL_JOGOS_EXIBIDOS : number = 50
+const TOTAL_JOGOS_EXIBIDOS : number = 70
 
-const Jogo = async ( { arrJogos, random = false } : { arrJogos: Array<Game>; random: boolean; } ) => {
+const Jogo = async ( { arrJogos, logado = false, random = false } : { arrJogos: Array<Game>; logado: boolean; random: boolean;  } ) => {
 
   if(arrJogos.length == 0)
   {
@@ -69,7 +68,6 @@ const Jogo = async ( { arrJogos, random = false } : { arrJogos: Array<Game>; ran
     
   }
   
-  
   return (
     <section
       id="blog"
@@ -78,7 +76,7 @@ const Jogo = async ( { arrJogos, random = false } : { arrJogos: Array<Game>; ran
       <div className="container">
         <SectionTitle
           title="Descubra os melhores jogos grátis para jogar!"
-          paragraph="Cadastre-se para ter uma recomendações personalizadas!"
+          paragraph={logado === false ? "Cadastre-se para ter uma recomendações personalizadas!" : "Os jogos que você ama estão aqui!"}
           center
         />
 

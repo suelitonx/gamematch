@@ -2,6 +2,8 @@
 import ScrollUp from "@/components/Common/ScrollUp";
 import Jogo from "@/components/Jogo/Jogo";
 import { Metadata } from "next";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 
 export const metadata: Metadata = {
@@ -10,14 +12,16 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-export default function Home() {
+export default async function Home() {
   
-  
-  
+  const session = await getServerSession(authOptions);
+
+
+
   return (
     <>
       <ScrollUp />
-      <Jogo random={false} arrJogos={[]}></Jogo>
+      <Jogo logado={ session !== null } random={false} arrJogos={[]}></Jogo>
       
       {/*
       <ScrollUp />

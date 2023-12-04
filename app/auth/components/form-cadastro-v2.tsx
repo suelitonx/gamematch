@@ -58,7 +58,7 @@ const NewSignUpForm = ({ logado }: { logado: boolean }) => {
 
                 if(!responseLogin?.error)
                 {
-                    router.push('/')
+                    router.push('/auth/configure')
                     router.refresh()
                 }
                 else {
@@ -70,36 +70,9 @@ const NewSignUpForm = ({ logado }: { logado: boolean }) => {
             {
                 setError(f.message)
             }
-            /* 
-            const response = await fetch("https://www.sueliton.live/api/collections/usuariosgm/records", {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        password: password,
-                        passwordConfirm: cpassword,
-                        nivel: 1
-                    }),
-            });
-
-            if (response.status === 200) {
-
-                const data = await response.json()
-
-                console.log(data)
-
-            }
-            else
-            {
-                setError("Não foi possível fazer o cadastro")
-            }*/
         } catch (error) {
             console.log(error)
         }
-        
-    
     }
 
     return (

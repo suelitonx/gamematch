@@ -7,6 +7,9 @@ import { Metadata } from "next";
 import { generos, generosFromAPI } from "@/data/info-api";
 import LikeButton from "./favoritebt";
 import { UniqueGame } from "@/types/game";
+import HoverRating from "./ratingSusu";
+import Testimonials from "@/components/Testimonials";
+import Avaliacoes from "@/components/Avaliar/indes";
 
 export const metadata: Metadata = {
   title: "GameMatch",
@@ -141,8 +144,15 @@ const UniqueGamePage = ({ game }: { game: UniqueGame }) => {
                     <div className="mb-5">
                       
                     
-                    <LikeButton idGame={game.id} ></LikeButton>
+                     {
+                      //<LikeButton idGame={game.id} ></LikeButton>
+                     }
 
+                     
+
+                     {
+                      //<HoverRating></HoverRating>
+                     }
                       {
                       /*<a
                         href="#0"
@@ -380,7 +390,12 @@ const UniqueGamePage = ({ game }: { game: UniqueGame }) => {
                       </div>
                     </div>
                     }
-                    <div className="items-center justify-between sm:flex">
+
+                    <div>
+                      <Avaliacoes idjogo={game.id.toString()}></Avaliacoes>
+                    </div>
+
+                    <div className="items-center justify-between sm:flex my-4">
                       <div className="mb-5">
                         <h4 className="mb-3 text-sm font-medium text-body-color">
                           Gênero:

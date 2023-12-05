@@ -2,14 +2,12 @@
 import RelatedPost from "@/components/Blog/RelatedPost";
 import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
-
 import { Metadata } from "next";
 import { generos, generosFromAPI } from "@/data/info-api";
-import LikeButton from "./favoritebt";
 import { UniqueGame } from "@/types/game";
-import HoverRating from "./ratingSusu";
-import Testimonials from "@/components/Testimonials";
-import Avaliacoes from "@/components/Avaliar/indes";
+import Avaliacoes from "@/components/Avaliar";
+import AvaliarComentario from "@/components/Avaliar/AvaliarComentario";
+
 
 export const metadata: Metadata = {
   title: "GameMatch",
@@ -390,6 +388,8 @@ const UniqueGamePage = ({ game }: { game: UniqueGame }) => {
                       </div>
                     </div>
                     }
+
+                    <AvaliarComentario idjogo={game.id}></AvaliarComentario>
 
                     <div>
                       <Avaliacoes idjogo={game.id.toString()}></Avaliacoes>

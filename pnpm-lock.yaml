@@ -44,9 +44,6 @@ dependencies:
   react-modal-video:
     specifier: ^2.0.1
     version: 2.0.1(react-dom@18.2.0)(react@18.2.0)
-  swr:
-    specifier: ^2.2.4
-    version: 2.2.4(react@18.2.0)
 
 devDependencies:
   '@types/node':
@@ -65,8 +62,8 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0
   prettier-plugin-tailwindcss:
-    specifier: ^0.5.8
-    version: 0.5.8(prettier@3.1.0)
+    specifier: ^0.5.9
+    version: 0.5.9(prettier@3.1.0)
   tailwindcss:
     specifier: ^3.3.6
     version: 3.3.6
@@ -269,8 +266,8 @@ packages:
       - supports-color
     dev: false
 
-  /@floating-ui/core@1.5.1:
-    resolution: {integrity: sha512-QgcKYwzcc8vvZ4n/5uklchy8KVdjJwcOeI+HnnTNclJjs2nYsy23DOCf+sSV1kBwD9yDAoVKCkv/gEPzgQU3Pw==}
+  /@floating-ui/core@1.5.2:
+    resolution: {integrity: sha512-Ii3MrfY/GAIN3OhXNzpCKaLxHQfJF9qvwq/kEJYdqDxeIHa01K8sldugal6TmeeXl+WMvhv9cnVzUTaFFJF09A==}
     dependencies:
       '@floating-ui/utils': 0.1.6
     dev: false
@@ -278,7 +275,7 @@ packages:
   /@floating-ui/dom@1.5.3:
     resolution: {integrity: sha512-ClAbQnEqJAKCJOEbbLo5IUlZHkNszqhuxS4fHAVxRPXPya6Ysf2G8KypnYcOTpx6I8xcgF9bbHb6g/2KpbV8qA==}
     dependencies:
-      '@floating-ui/core': 1.5.1
+      '@floating-ui/core': 1.5.2
       '@floating-ui/utils': 0.1.6
     dev: false
 
@@ -994,7 +991,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001566
-      electron-to-chromium: 1.4.603
+      electron-to-chromium: 1.4.605
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
     dev: true
@@ -1255,8 +1252,8 @@ packages:
       csstype: 3.1.2
     dev: false
 
-  /electron-to-chromium@1.4.603:
-    resolution: {integrity: sha512-Dvo5OGjnl7AZTU632dFJtWj0uJK835eeOVQIuRcmBmsFsTNn3cL05FqOyHAfGQDIoHfLhyJ1Tya3PJ0ceMz54g==}
+  /electron-to-chromium@1.4.605:
+    resolution: {integrity: sha512-V52j+P5z6cdRqTjPR/bYNxx7ETCHIkm5VIGuyCy3CMrfSnbEpIlLnk5oHmZo7gYvDfh2TfHeanB6rawyQ23ktg==}
     dev: true
 
   /emoji-regex@9.2.2:
@@ -2738,8 +2735,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: false
 
-  /prettier-plugin-tailwindcss@0.5.8(prettier@3.1.0):
-    resolution: {integrity: sha512-9XqjDi0zA/6IUYe3cC80+Eb+z0DU4vFF4yARVKddRZaW2ocBVawjpsFU7FtLn/xlBA8Fubp6Pd3HP3415Go4aw==}
+  /prettier-plugin-tailwindcss@0.5.9(prettier@3.1.0):
+    resolution: {integrity: sha512-9x3t1s2Cjbut2QiP+O0mDqV3gLXTe2CgRlQDgucopVkUdw26sQi53p/q4qvGxMLBDfk/dcTV57Aa/zYwz9l8Ew==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -3170,16 +3167,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /swr@2.2.4(react@18.2.0):
-    resolution: {integrity: sha512-njiZ/4RiIhoOlAaLYDqwz5qH/KZXVilRLvomrx83HjzCWTfa+InyfAjv05PSFxnmLzZkNO9ZfvgoqzAaEI4sGQ==}
-    peerDependencies:
-      react: ^16.11.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      client-only: 0.0.1
-      react: 18.2.0
-      use-sync-external-store: 1.2.0(react@18.2.0)
-    dev: false
-
   /tailwindcss@3.3.6:
     resolution: {integrity: sha512-AKjF7qbbLvLaPieoKeTjG1+FyNZT6KaJMJPFeQyLfIp7l82ggH1fbHJSsYIvnbTFQOlkh+gBYpyby5GT1LIdLw==}
     engines: {node: '>=14.0.0'}
@@ -3375,14 +3362,6 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.3.1
-    dev: false
-
-  /use-sync-external-store@1.2.0(react@18.2.0):
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
     dev: false
 
   /util-deprecate@1.0.2:

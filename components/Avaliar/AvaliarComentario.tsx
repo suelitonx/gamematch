@@ -1,9 +1,16 @@
 'use client'
 
-import { useState } from "react";
+import { Fragment, useState } from 'react'
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
-import { error } from "console";
+import CircularProgress from '@mui/material/CircularProgress';
+
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const labels: { [index: string]: string } = {
   1: 'Muito ruim',
@@ -18,14 +25,33 @@ function getLabelText(value: number) {
 }
 
 const AvaliarComentario = ({idjogo} : {idjogo:number}) => {
+
   const [value, setValue] = useState<number | null>(3);
   const [hover, setHover] = useState(-1);
   const [error, setError] = useState('')
   const [sucess, setSucess] = useState('')
+  const [carregando, setCarregando] = useState<boolean>(false)
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleComment = async (e: React.FormEvent<HTMLFormElement>) => {
 
     e.preventDefault();
+
+    if(carregando === true)
+    {
+      return
+    }
+
+    setCarregando(true)
+
     const formData = new FormData(e.currentTarget)
     const msg = formData.get('message');
     
@@ -49,24 +75,52 @@ const AvaliarComentario = ({idjogo} : {idjogo:number}) => {
             
             if(f.code === 200)
             {
-                console.log("SUCESSO")
+                setSucess(f.message)
+                handleClickOpen()
             }
             else
             {
-                console.log("ERRO")
+                setError(f.message)
             }
         } catch (error) {
             console.log(error)
         }
 
+        
+
 
     }
+
+    setCarregando(false)
 
   }
 
   return (
     
       <div className="container">
+        <Fragment>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {"Parabéns!"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Avaliação enviada com sucesso! Atualize a página e verá sua avaliação.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} autoFocus>
+              OK
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Fragment>
+        
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full">
             <div
@@ -116,6 +170,7 @@ const AvaliarComentario = ({idjogo} : {idjogo:number}) => {
                       </label>
                       <textarea
                         name="message"
+                        id='messageid'
                         rows={4}
                         placeholder="Escreva seu comentário (opcional)"
                         className="border-stroke dark:text-body-color-dark dark:shadow-two w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
@@ -123,9 +178,19 @@ const AvaliarComentario = ({idjogo} : {idjogo:number}) => {
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <button className="shadow-submit dark:shadow-submit-dark rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90">
+                    {carregando === false ? <button className="shadow-submit dark:shadow-submit-dark rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90">
                       Avaliar
-                    </button>
+                    </button> : <CircularProgress />}
+                  
+                    {error &&
+                    <p className="text-center text-base text-red-800 dark:text-red-400 font-medium text-body-color">
+                      ERRO:{" "}{error}
+                    </p>}
+                  
+                    {sucess &&
+                    <p className="text-center text-base text-green-800 dark:text-green-400 font-medium text-body-color">
+                      {sucess}
+                    </p>}
                   </div>
                 </div>
               </form>

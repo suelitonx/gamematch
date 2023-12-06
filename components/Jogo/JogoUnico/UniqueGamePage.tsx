@@ -7,6 +7,7 @@ import { generos, generosFromAPI } from "@/data/info-api";
 import { UniqueGame } from "@/types/game";
 import Avaliacoes from "@/components/Avaliar";
 import AvaliarComentario from "@/components/Avaliar/AvaliarComentario";
+import NewAvaliacoes from "@/components/Avaliar/NewAvaliacoes";
 
 
 export const metadata: Metadata = {
@@ -392,7 +393,7 @@ const UniqueGamePage = ({ game }: { game: UniqueGame }) => {
                     <AvaliarComentario idjogo={game.id}></AvaliarComentario>
 
                     <div>
-                      <Avaliacoes idjogo={game.id.toString()}></Avaliacoes>
+                      <NewAvaliacoes idjogo={game.id.toString()}></NewAvaliacoes>
                     </div>
 
                     <div className="items-center justify-between sm:flex my-4">

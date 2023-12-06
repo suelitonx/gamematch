@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
     
 
-    return NextResponse.json({message: 'Configuração realizada!', code: 200})
+    return NextResponse.json({message: 'Avaliação enviada com sucesso!', code: 200})
 
 
 }

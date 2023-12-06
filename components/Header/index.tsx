@@ -220,7 +220,7 @@ const Header = () => {
                 </Transition>
           </Menu> : <> <Link
                   href="/auth/login"
-                  className="hidden px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white md:block"
+                  className="px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white md:block"
                 >
                   Login
                 </Link>

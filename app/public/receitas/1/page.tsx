@@ -1,3 +1,11 @@
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+  title: "Receita 1",
+  description: "PWEB",
+  // other metadata
+};
+
 async function getData() {
     const res = await fetch('https://api.adviceslip.com/advice', {next: { revalidate: 1 }})
    

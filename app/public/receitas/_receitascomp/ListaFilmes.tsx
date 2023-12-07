@@ -1,7 +1,12 @@
 import useSWR from "swr"
 import Filme from "./filmex"
 
-export default function ListaFilmes({url} : {url: string}) {
+type ListaFilmesProps = {
+    url: string;
+    servidor?: boolean;
+};
+
+export default function ListaFilmes({ url, servidor }: ListaFilmesProps) {
 
     const {data, error} = useFetch(url)
 
@@ -28,7 +33,7 @@ export default function ListaFilmes({url} : {url: string}) {
                         <Filme
                         title={m.Title}
                         image={m.Poster}
-                        link={`/public/receitas/filme/${m.imdbID}`}
+                        link={servidor === true ?  `/public/receitas/9/${m.imdbID}` :  `/public/receitas/filme/${m.imdbID}`}
                         date={m.Year}
                         />
                     </li>

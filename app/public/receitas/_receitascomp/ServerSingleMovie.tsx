@@ -1,14 +1,12 @@
-'use client'
-
-import useSWR from "swr"
 import { API_KEY } from "../apikey"
 import Image from 'next/image'
 
-export function SingleMovieDetails( { id } : { id: string } ) {
+export async function ServerSingleMovie( { id } : { id: string } ) {
 
     let linkApi = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`
 
-    const { data, error } = useFetch(linkApi)
+    const res = await fetch(linkApi)
+    const data = await res.json()
 
     return <section className="relative z-10 overflow-hidden pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
        
@@ -17,7 +15,7 @@ export function SingleMovieDetails( { id } : { id: string } ) {
          <div className="w-full px-4">
            <div className="shadow-three mx-auto max-w-[800px] rounded bg-white px-6 py-10 dark:bg-dark sm:p-[60px]">
             
-            {!data ? <h3 className="mb-5 text-center font-bold text-black dark:text-white"> Carregando informações do filme...</h3> : <>
+            {data && data.Response !== "False" ?  <>
             
            <Image
                 src={data.Poster}
@@ -104,7 +102,7 @@ export function SingleMovieDetails( { id } : { id: string } ) {
                 
             </dl>
              
-            </>}
+            </> : <h3 className="mb-5 text-center text-red-400 font-bold text-black dark:text-red-400"> Não foi possível exibir os dados do filme, verifique o ID informado ({id}) </h3>}
            </div>
          </div>
        </div>
@@ -114,17 +112,4 @@ export function SingleMovieDetails( { id } : { id: string } ) {
      
 
     
-}
-
-function useFetch(url : string) {
-    const {data, error} = useSWR(url, async (url) => {
-  
-      const res = await fetch(url)
-  
-      const json = await res.json()
-  
-      return json
-    }, {revalidateOnFocus: false})
-  
-    return { data, error }  
 }

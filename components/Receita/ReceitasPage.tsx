@@ -37,6 +37,22 @@ const ReceitasForm = ( ) => {
         url: "/public/receitas/4",
         developer: "Susu"
     },
+    {
+      id: 5,
+      title: "Receitas 5 e 6",
+      thumbnail: "/images/receitas/5.png",
+      short_description: "Melhorias da Receita 4, com implementação de Estados.",
+      url: "/public/receitas/5",
+      developer: "Susu"
+    },
+    {
+      id: 9,
+      title: "Receita 9",
+      thumbnail: "/images/receitas/9.png",
+      short_description: "As rotas dinâmicas agora vão ser pré-renderizadas pelo servidor.",
+      url: "/public/receitas/9",
+      developer: "Susu"
+    },
     /*
     {
         id: 5,

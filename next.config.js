@@ -13,6 +13,11 @@ const nextConfig = {
         hostname: "www.freetogame.com",
         port: "",
       },
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+        port: '',
+      },
     ],
   },
 };

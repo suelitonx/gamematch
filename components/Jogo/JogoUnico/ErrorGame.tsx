@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function ErrorGame() {
+export default function ErrorGame( { erro } : { erro : string } ) {
 
 
 
@@ -21,7 +21,7 @@ export default function ErrorGame() {
                 </h2>
 
                 <h4 className="mb-10 text-center font-bold text-black dark:text-white">
-                As informações do jogo não estão disponíveis, tente mais tarde!
+                {erro}
                 </h4>
 
                 <Link

@@ -48,7 +48,7 @@ export default async function JogoUnico({ params } : { params: {id: number}; }) 
       return (
         <>
         <ScrollUp />
-        <ErrorGame></ErrorGame>
+        <ErrorGame erro="As informações do jogo não estão disponíveis, tente mais tarde!"></ErrorGame>
         </>
       )
     }

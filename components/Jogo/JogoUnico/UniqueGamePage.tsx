@@ -4,11 +4,10 @@ import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
 import { Metadata } from "next";
 import { generos, generosFromAPI } from "@/data/info-api";
-import { UniqueGame } from "@/types/game";
+import { Game, UniqueGame } from "@/types/game";
 import Avaliacoes from "@/components/Avaliar";
 import AvaliarComentario from "@/components/Avaliar/AvaliarComentario";
 import NewAvaliacoes from "@/components/Avaliar/NewAvaliacoes";
-
 
 export const metadata: Metadata = {
   title: "GameMatch",
@@ -16,7 +15,9 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const UniqueGamePage = ({ game }: { game: UniqueGame }) => {
+const UniqueGamePage = ({ game, relacionados }: { game: UniqueGame; relacionados: Array<Game> }) => {
+
+  //console.log(relacionados)
 
   function formatarData() : string {
     
@@ -439,38 +440,27 @@ const UniqueGamePage = ({ game }: { game: UniqueGame }) => {
                 </div>
                 
                 
-                
+                {relacionados.length >= 1 &&
                 <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
                   <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
-                    Jogos relacionados
+                    Jogos em alta
                   </h3>
                   <ul className="p-8">
-                    <li className="mb-6 border-b border-body-color border-opacity-10 pb-6 dark:border-white dark:border-opacity-10">
+                    
+                  {relacionados.map(r => (
+                    <li key={r.id}  className="mb-6 border-b border-body-color border-opacity-10 pb-6 dark:border-white dark:border-opacity-10">
                       <RelatedPost
-                        title="PUBG: BATTLEGROUNDS"
-                        image="https://www.freetogame.com/g/516/thumbnail.jpg"
-                        slug="/11"
-                        date="KRAFTON, Inc."
+                        title={r.title}
+                        image={r.thumbnail}
+                        slug={`/details-games/${r.id}`}
+                        date={r.developer}
                       />
                     </li>
-                    <li className="mb-6 border-b border-body-color border-opacity-10 pb-6 dark:border-white dark:border-opacity-10">
-                      <RelatedPost
-                        title="Halo Infinite"
-                        image="https://www.freetogame.com/g/515/thumbnail.jpg"
-                        slug="#"
-                        date="Xbox Game Studios"
-                      />
-                    </li>
-                    <li>
-                      <RelatedPost
-                        title="Valorant"
-                        image="https://www.freetogame.com/g/466/thumbnail.jpg"
-                        slug="#"
-                        date="Riot Games"
-                      />
-                    </li>
+                  ))}
+                    
                   </ul>
                 </div>
+                }
 
                 <div className="shadow-three dark:bg-gray-dark mb-10 rounded-sm bg-white dark:shadow-none">
                   <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">

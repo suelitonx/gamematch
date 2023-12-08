@@ -38,10 +38,21 @@ const Jogo = async ( { arrJogos, logado = false, random = false } : { arrJogos: 
     }
     else
     {
+      const response = await fetch("https://www.freetogame.com/api/games");
 
-      const newGames : Array<Game> = games;
-      newGames.sort(() => Math.random() - 0.5);
-      arrJogos = newGames;
+      if(response.status === 200)
+      {
+        const jogos = await response.json();
+        const newGames : Array<Game> = jogos;
+        newGames.sort(() => Math.random() - 0.5);
+        arrJogos = newGames;
+      }
+      else
+      {
+        const newGames : Array<Game> = games;
+        newGames.sort(() => Math.random() - 0.5);
+        arrJogos = newGames;
+      }
 
       /*
       let generos:Array<string> = [];

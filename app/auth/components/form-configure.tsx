@@ -41,7 +41,6 @@ const FormConfigure = ({ logado, platf, }: { logado: boolean; platf: string; }) 
       router.push('/')
     }
 
-    
     console.log("PLAT:", platf)
     
 
@@ -75,6 +74,9 @@ const FormConfigure = ({ logado, platf, }: { logado: boolean; platf: string; }) 
             {
               await update({ categorias: selecionados, plataforma: plat.id })
               setSucesso('Alteração realizada com sucesso.')
+
+              router.push('/')
+              router.refresh()
             }
             else
             {
@@ -97,11 +99,12 @@ const FormConfigure = ({ logado, platf, }: { logado: boolean; platf: string; }) 
         }
         else
         {
-        for (const key in generos) {
+          for (const key in generos) {
+            
             if(!selecionados.includes(generos[key].original)) {
-            setSelecionados(prev => [...prev, generos[key].original])
+              setSelecionados(prev => [...prev, generos[key].original])
             }
-        }
+          }
         }
         
         

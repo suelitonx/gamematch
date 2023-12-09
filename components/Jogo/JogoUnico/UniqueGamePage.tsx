@@ -330,6 +330,8 @@ const UniqueGamePage = ({ game, relacionados }: { game: UniqueGame; relacionados
 
                     
 
+                    
+
                     <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                       {game.description}
                     </p>

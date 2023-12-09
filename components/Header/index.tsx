@@ -173,7 +173,7 @@ const Header = () => {
                 </nav>
               </div>
               <div className="flex items-center justify-end pr-16 lg:pr-0">
-                
+
                 {loading === false ? session ?
                 <Menu as="div" className="relative ml-3">
                 <div>

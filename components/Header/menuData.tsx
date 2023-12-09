@@ -100,61 +100,61 @@ const menuData: Menu[] = [
       {
         id: 66000,
         title: "Pesquisar MMORPG",
-        path: "/public/categorias/mmorpg",
+        path: "/public/all/mmorpg",
         newTab: false
       },
       {
         id: 66001,
         title: "Pesquisar Atirador",
-        path: "/public/categorias/shooter",
+        path: "/public/all/shooter",
         newTab: false
       },
       {
         id: 66003,
         title: "Pesquisar Battle Royale",
-        path: "/public/categorias/battle-royale",
+        path: "/public/all/battle-royale",
         newTab: false
       },
       {
         id: 66004,
         title: "Pesquisar Estratégia",
-        path: "/public/categorias/strategy",
+        path: "/public/all/strategy",
         newTab: false
       },
       {
         id: 66006,
         title: "Pesquisar Ficção Científica",
-        path: "/public/categorias/sci-fi",
+        path: "/public/all/sci-fi",
         newTab: false
       },
       {
         id: 66008,
         title: "Pesquisar Cartas",
-        path: "/public/categorias/card",
+        path: "/public/all/card",
         newTab: false
       },
       {
         id: 66009,
         title: "Pesquisar Corrida",
-        path: "/public/categorias/racing",
+        path: "/public/all/racing",
         newTab: false
       },
       {
         id: 66009,
         title: "Pesquisar Luta",
-        path: "/public/categorias/fighting",
+        path: "/public/all/fighting",
         newTab: false
       },
       {
         id: 66010,
         title: "Pesquisar Social",
-        path: "/public/categorias/social",
+        path: "/public/all/social",
         newTab: false
       },
       {
         id: 66011,
         title: "Pesquisar Esportes",
-        path: "/public/categorias/sports",
+        path: "/public/all/sports",
         newTab: false
       },
     ],

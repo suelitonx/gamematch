@@ -70,17 +70,21 @@ const generos: { original: string; traducao: string }[] = [
 
 //release-date, popularity, alphabetical or relevance
 const ordenacao: { original: string; traducao: string }[] = [
+    {original: "relevance", traducao: "Relevância"},
     {original: "release-date", traducao: "Data de Lançamento"},
     {original: "popularity", traducao: "Popularidade"},
-    {original: "alphabetical", traducao: "Ordem Alfabética"},   
-    {original: "relevance", traducao: "Relevância"},
+    {original: "alphabetical", traducao: "Ordem Alfabética"}, 
 ];
 
 //pc, browser or all
 const plataformas: {original: string; traducao: string}[] = [
+    {original: "all", traducao: "Todas"},
     {original: "pc", traducao: "PC"},
     {original: "browser", traducao: "Navegador"},
-    {original: "all", traducao: "Todas"},
 ];
 
-export { generos, ordenacao, plataformas, generosFromAPI }
+const DEFAULT_GENERO = 'mmorpg'
+const DEFAULT_PLATAFORMA = 'all'
+const DEFAULT_ORDEM = 'relevance'
+
+export { generos, ordenacao, plataformas, generosFromAPI, DEFAULT_GENERO, DEFAULT_PLATAFORMA, DEFAULT_ORDEM }

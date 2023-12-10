@@ -71,7 +71,7 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src="/images/logo/gm.png"
+                  src="/images/logo/gmdark.png"
                   alt="logo"
                   width={140}
                   height={30}
@@ -164,6 +164,7 @@ const Header = () => {
                                   {submenuItem.title}
                                 </Link>
                               ))}
+                              
                             </div>
                           </>
                         )}

@@ -37,7 +37,20 @@ export default async function CategoriasPC({ params, searchParams } : { params: 
 
     if(response.status == 200)
     {
-        jogosArray = await response.json()
+      const jogos = await response.json()
+
+      if(searchParams.search !== null && searchParams.search !== undefined)
+      {
+        const regex = new RegExp(searchParams.search.toString(), 'i');
+    
+        jogosArray = jogos.filter(game => {
+          return regex.test(game.title);
+        })
+      }
+      else
+      {
+        jogosArray = jogos
+      }
     }
 
     return (

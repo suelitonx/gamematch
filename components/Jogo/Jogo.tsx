@@ -13,7 +13,6 @@ const Jogo = async ( { arrJogos, logado = false, random = false, pesquisar = fal
 
   if(arrJogos.length == 0)
   {
-
     if(logado === true)
     {
       const session = await getServerSession(authOptions);
@@ -36,9 +35,8 @@ const Jogo = async ( { arrJogos, logado = false, random = false, pesquisar = fal
         }
         else
         {
-          const newGames : Array<Game> = games;
-          newGames.sort(() => Math.random() - 0.5);
-          arrJogos = newGames;
+          games.sort(() => Math.random() - 0.5);
+          arrJogos = games;
         }
       }
       else
@@ -48,19 +46,33 @@ const Jogo = async ( { arrJogos, logado = false, random = false, pesquisar = fal
         if(response.status === 200)
         {
           const jogos = await response.json();
-          const newGames : Array<Game> = jogos;
-          newGames.sort(() => Math.random() - 0.5);
-          arrJogos = newGames;
+          jogos.sort(() => Math.random() - 0.5);
+          arrJogos = jogos;
         }
         else
         {
-          const newGames : Array<Game> = games;
-          newGames.sort(() => Math.random() - 0.5);
-          arrJogos = newGames;
+          games.sort(() => Math.random() - 0.5);
+          arrJogos = games;
         }
 
       }
     }
+    else
+    {
+      const response = await fetch("https://www.freetogame.com/api/games?sort-by=popularity");
+
+      if(response.status === 200)
+      {
+        const jogos = await response.json();
+        jogos.sort(() => Math.random() - 0.5);
+        arrJogos = jogos;
+      }
+      else
+      {
+        games.sort(() => Math.random() - 0.5);
+        arrJogos = games;
+      }
+    } 
 
     
     

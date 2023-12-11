@@ -20,11 +20,6 @@ export default async function Home() {
     <>
       <ScrollUp />
       <Jogo logado={ session !== null } random={false} arrJogos={[]}></Jogo>
-      
-      {/*
-      <ScrollUp />
-      <Blog />
-      */}
       </>
   );
 }
